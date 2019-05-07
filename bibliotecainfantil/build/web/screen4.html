@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Biblioteca infantil</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <style>
+            body {
+                background-color: whitesmoke;
+            }
+
+            .row.content {
+                height: 700px;
+            }
+
+            .sidenav {
+                padding:  auto;
+                background-color: whitesmoke;
+                height: 100%;
+            }
+
+            .pagina {
+                height: 700px;
+                display:inline-block;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .btn{
+                position: relative;
+            }
+
+            .flechas{
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                background-color: #ff00c5;
+                color: white;
+            }
+
+            .audio{
+                display: block; 
+                margin: auto;
+                background-color: #ff5100;
+                color: white;
+            }
+            
+            .atras {
+                padding: 10px;
+                margin-top: 10px;
+                background-color: greenyellow;
+                color: black;
+            }
+
+            footer {
+                background-color: whitesmoke;
+                padding: 15px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container-fluid">    
+            <div class="row content">
+                <div class="col-md-2 sidenav">
+                    <button type="button" class="btn btn-default btn-lg flechas ">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-lg atras">
+                        <a href="screen3.html"><span class="glyphicon glyphicon-arrow-left"></span> Atrás</a>        
+                       
+                    </button>
+                </div>
+                <div class="col-sm-8 pagina">
+                    <img src="Libros/1.png">
+                </div>
+                <div class="col-md-2 sidenav">
+                    <button type="button" class="btn btn-default btn-lg flechas ">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="container-fluid">
+            <button type="button" class="btn btn-default audio">
+                <span class="glyphicon glyphicon-volume-up"></span> Activar audio
+            </button>
+
+        </footer>
+
+    </body>
+</html>
