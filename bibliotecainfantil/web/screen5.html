@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 
 <head>
   <meta charset="utf-8">
@@ -7,10 +7,14 @@
   <title>Biblioteca digital</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/styles.min.css">
+
+  <!--Angular JS V1.7(Latest)-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
 </head>
 
 
-<body>
+<!--Matriz con arreglo de libros-->
+<body ng-init="books=['assets/img/milagro.jpeg', 'assets/img/papelucho.jpg' ]">
   <nav class="navbar navbar-dark bg-dark">
     <!--NavBar-->
     <div class="float-lg-left">
@@ -26,7 +30,7 @@
       </form>
     </div>
   </nav>
-  
+
 
   <!-- Padding-->
   <div class="pt-3 pl-3 ">
@@ -35,45 +39,21 @@
 
   <!--Cards-->
   <div class="d-flex flex-row justify-content-center ">
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/bob_esponja.JPG" alt="pr-sample23" /></div>
+<!-- ng-repear itera el elemento completo las veces que tenga de largo el arreglo-->
+    <figure ng-repeat="x in books" style="width: 10%; height:50%;" class="snip1527 hover">
+      <!-- ng-src se encarga de traer el elemento en la matriz-->
+      <div class="image"><img ng-src="{{x}}" alt="pr-sample23" /></div>
       <figcaption>
-        <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
+
         <h3>The World Ended Yesterday</h3>
         <p>
-
           You know what we need, Hobbes? We need an attitude. Yeah, you can't be cool if you don't have an attitude.
         </p>
       </figcaption>
       <a href="#"></a>
     </figure>
-    <figure class="snip1527 hover">
-      <div class="image"><img src="assets/img/el principito.jpg" alt="pr-sample24" /></div>
-      <figcaption>
-        <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
-        <h3>An Abstract Post Heading</h3>
-        <p>
 
-          Sometimes the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried
-          to
-          contact us.
-        </p>
-      </figcaption>
-      <a href="#"></a>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/papelucho.jpg" alt="pr-sample25" /></div>
-      <figcaption>
-        <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
-        <h3>Down with this sort of thing</h3>
-        <p>
-
-          I don't need to compromise my principles, because they don't have the slightest bearing on what happens to me
-          anyway.
-        </p>
-      </figcaption>
-      <a href="#"></a>
-    </figure>
+    
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
