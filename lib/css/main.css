@@ -1,0 +1,15 @@
+img {
+  width:350px;
+  align-content: center;
+}
+.panel {
+  /*margin-left: 100px;*/
+  width: 100%;
+}
+.nav {
+  margin-left: 220px;
+  margin-top: 50px;
+}
+h1 {
+  margin-left: 50px;
+}
