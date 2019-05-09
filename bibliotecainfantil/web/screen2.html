@@ -11,106 +11,41 @@
 
   <!--Angular JS V1.7(Latest)-->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
-  
+
 </head>
-  
-  
-<body>  
+
+
+<body
+  ng-init="books=['assets/img/milagro.jpeg','assets/img/papelucho.jpg','assets/img/pedro_melenas.jpg','assets/img/bob_esponja.jpg','assets/img/chistes.jpg','assets/img/escuela.jpg','assets/img/mi_cuerpo.jpg','assets/img/latitud_sur.jpg' ]">
+
+  <!--NavBar-->
   <nav class="navbar navbar-dark bg-dark">
-<!--NavBar-->
     <div class="float-lg-left">
       <button type="button" class="btn btn-dark">Back</button>
     </div>
     <div class="text-white">
       <h4>Biblioteca Digital</h4>
     </div>
-</nav>
+  </nav>
 
-<!-- Padding-->
-<div class="pt-3 pl-3 text-center">
-  <h3>selecciona tus 5 libros favoritos</h3>
- 
-  {{"Prueba" + " de Angular"}}
-</div>
-
-<!--Cards-->
-<div class="d-flex flex-row justify-content-center">
-  <figure class="snip1527">
-    <div class="image"><img src="assets/img/papelucho.jpg"  /></div>
-  </figure>
-  <figure class="snip1527">
-    <div class="image"><img src="assets/img/libro_selva.jpg" alt="pr-sample25" /></div>
-  </figure>
-  <figure class="snip1527">
-    <div class="image"><img src="assets/img/el principito.jpg" alt="pr-sample25" /></div>
-  </figure>
-   <figure class="snip1527">
-    <div class="image"><img src="assets/img/bob_esponja.JPG" alt="pr-sample25" /></div>
-  </figure>
-</div>
-
-<div class="d-flex flex-row justify-content-center ">
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/chistes.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/pedro_melenas.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/adviento.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-        <div class="image"><img src="assets/img/mi_cuerpo.jpg" alt="pr-sample25" /></div>
-    </figure>
+  <!-- Padding-->
+  <div class="pt-3 pl-3 text-center">
+    <h3>Selecciona tus 5 libros favoritos</h3>
   </div>
 
-  <div class="d-flex flex-row justify-content-center ">
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/escuela.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/chistes.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/pedro_melenas.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-        <div class="image"><img src="assets/img/papelucho.jpg" alt="pr-sample25" /></div>
-    </figure>
-  </div>
-  <div class="d-flex flex-row justify-content-center ">
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/el principito.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/latitud_sur.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/papelucho.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-        <div class="image"><img src="assets/img/chistes.jpg" alt="pr-sample25" /></div>
-    </figure>
-  </div>
-  <div class="d-flex flex-row justify-content-center ">
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/bob_esponja.JPG" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/latitud_sur.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/el principito.jpg" alt="pr-sample25" /></div>
-    </figure>
-    <figure class="snip1527">
-        <div class="image"><img src="assets/img/adviento.jpg" alt="pr-sample25" /></div>
-    </figure>
+  <!--Cards-->
+  <div class="d-flex flex-row ">
+    <div ng-repeat="x in books" style="margin:1%">
+      <img height="100%" width="100%" ng-src="{{x}}" />
+    </div>
   </div>
 
-<a class="btn btn-danger btn-lg" href="screen3.html">¡Listo!</a>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+  <a class="btn btn-danger btn-lg" href="screen3.html">¡Listo!</a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
