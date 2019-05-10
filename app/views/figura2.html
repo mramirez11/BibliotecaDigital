@@ -1,0 +1,24 @@
+<div ng-controller="booksController">
+
+
+  <!-- Padding-->
+  <div class="pt-3 pl-3 text-center">
+    <h3>selecciona tus 5 libros favoritos</h3>
+
+    {{hola}}
+  </div>
+
+ <!--Cards-->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2" ng-repeat="x in books" >
+      <div class="d-flex flex-row ">
+          <img height="100%" width="100%" ng-src="{{x.rutaPagina}}" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <a class="btn btn-danger btn-lg" ng-click="cambioVista('figura3')">¡Listo!</a>
+</div>

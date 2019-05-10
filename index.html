@@ -1,0 +1,41 @@
+<!-- Archivo index.html es el archivo principal, este contiene la aplicación que desarrollaremos en angular
+  además del controlador principal, esta página recibirá toda la lógica que implementemos en nuestro proyecto
+  basado en esta tecnologia para el FrontEnd de nuestro sistema -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo Angular</title>
+
+  <!-- hojas de estilo, Bootstrap 4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/css/styles.min.css">
+  <link rel="stylesheet" href="lib/css/main.css">
+  <!-- hoja de esilo para figura 1 -->
+  <link rel="stylesheet" href="lib/css/styles_screen1.css">
+  <!-- Archivos Javascript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="app/directives.js"></script>
+  <script src="app/controllers/AplicacionController.js"></script>
+  <script src="app/app.js"></script>
+
+</head>
+<!-- ng-app es la directiva nativa de angular que me permite declarar la aplicación que controlaremos con los
+  distintos controllers que implementemos, en este caso con la directiva ng-controller -->
+
+<body ng-app="app" ng-controller="applicationController">
+  <!-- la doble expresión de {{}} o ng-bind nos permite acceder desde nuestro archivo app.js mediante el uso del $scope
+    es decir en este caso "ejemplo" funciona como una simple variable y nuestro {{}} como un print sobre nuestro 
+    navegador " -->
+  <navbar></navbar>
+
+
+  <h1 ng-bind="ejemplo"></h1>
+  <div ng-include="menu">
+  </div>
+</body>
+
+</html>
