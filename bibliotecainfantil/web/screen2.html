@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
 
 <head>
   <meta charset="utf-8">
@@ -12,11 +12,11 @@
   <!--Angular JS V1.7(Latest)-->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
 
+  <script type="text/javascript" src="controllers/controllerBooks.js"></script>
 </head>
 
 
-<body
-  ng-init="books=['assets/img/milagro.jpeg','assets/img/papelucho.jpg','assets/img/pedro_melenas.jpg','assets/img/bob_esponja.jpg','assets/img/chistes.jpg','assets/img/escuela.jpg','assets/img/mi_cuerpo.jpg','assets/img/latitud_sur.jpg' ]">
+<body ng-controller="controllerBooks">
 
   <!--NavBar-->
   <nav class="navbar navbar-dark bg-dark">
@@ -33,12 +33,13 @@
     <h3>Selecciona tus 5 libros favoritos</h3>
   </div>
 
+<h1>{{hola}}</h1>
 <!--Cards-->
 <div class="container">
   <div class="row">
     <div class="col-sm-2" ng-repeat="x in books" >
       <div class="d-flex flex-row ">
-          <img height="100%" width="100%" ng-src="{{x}}" />
+          <img height="100%" width="100%" ng-src="{{x.rutaPagina}}" />
       </div>
     </div>
   </div>
