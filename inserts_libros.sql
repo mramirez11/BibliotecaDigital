@@ -1,0 +1,13 @@
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('Blanca Nieves', 'lib/img/libros/Blanca Nieves/Portada.JPG');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('Caperucita Roja', 'lib/img/libros/Caperucita Roja/Portada.jpg');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('El arbol magico', 'lib/img/libros/El arbol magico/Portada.JPG');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('El robot', 'lib/img/libros/El robot/Portada.JPG');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('Hansel y Gretel', 'lib/img/libros/Hansel y Gretel/Portada.jpg');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('La cenicienta', 'lib/img/libros/La cenicienta/Portada.JPG');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('La nube avariciosa', 'lib/img/libros/La nube avariciosa/Portada.jpg');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('Libro de la selva', 'lib/img/libros/Libro de la selva/Portada.JPG');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('Los 3 cerditos', 'lib/img/libros/Los 3 cerditos/Portada.jpg');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('Rey leon', 'lib/img/libros/Rey leon/Portada.JPG');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('La nube avariciosa', 'lib/img/libros/La nube avariciosa/Portada.jpg');
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`) VALUES ('El pirata bueno', 'lib/img/libros/El pirata bueno/Portada.JPG');
+SELECT * FROM biblioteca.Libro;
