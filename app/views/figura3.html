@@ -1,4 +1,4 @@
-<h1 align=center style=color:rgb(228,0,0);> Recomendaciones </h1>
+<h1 align=center style=color:rgb(228,0,0);> Recomendacionsses </h1>
 
 
 
@@ -18,7 +18,7 @@
                                         height="460" ng-src="{{x.rutaPagina}}">
                                 </a>
                                 <div class="carousel-caption d-none d-md-block">
-                                    <h4 style=color:rgb(228,0,0);>{{x.titulo}}</h4>
+                                    <h4 style=color:black;>{{x.titulo}}</h4>
                                 </div>
                             </div>
 
@@ -32,12 +32,9 @@
                                 href="#carousel-1" role="button" data-slide="next"><span
                                     class="carousel-control-next-icon"></span><span class="sr-only">Next</span></a>
                         </div>
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-1" data-slide-to="1"></li>
-                            <li data-target="#carousel-1" data-slide-to="2"></li>
-                            <li data-target="#carousel-1" data-slide-to="3"></li>
-                            <li data-target="#carousel-1" data-slide-to="4"></li>
+                        <ol class="carousel-indicators" >
+                            <li data-target="#carousel-1" ng-repeat="x in books" data-slide-to="{{x.idLibro}}" class="active"></li>
+                           
                         </ol>
                     </div>
                 </div>
