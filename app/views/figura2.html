@@ -3,7 +3,7 @@
 
   <!-- Padding-->
   <div class="pt-3 pl-3 text-center">
-    <h3>selecciona tus 5 libros favoritos</h3>
+    <h3>Selecciona tus 5 libros favoritos</h3>
 
     {{hola}}
   </div>
@@ -13,7 +13,8 @@
   <div class="row">
     <div class="col-sm-2" ng-repeat="x in books" >
       <div class="d-flex flex-row ">
-          <img height="100%" width="100%" ng-src="{{x.rutaPagina}}" />
+          <img style="padding-bottom: 10%" height=200 width="100%" ng-src="{{x.rutaPagina}}" />
+
       </div>
     </div>
   </div>

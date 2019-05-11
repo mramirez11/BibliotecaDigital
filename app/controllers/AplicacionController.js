@@ -13,11 +13,11 @@
     //Desarrollamos funciones que nos permitirán lograr una interacción con un tab de bootstrap
     //con un ng-include de angular
     //$scope.menu='app/views/figura2.html';
-    $scope.menu = 'app/views/figura2.html';
+    $scope.menu = 'app/views/figura3.html';
     $scope.cambioVista = function (menu) {//funcion que cambia vistas
 
       $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
-      alert($scope.isMenu(menu) + " " + menu);
+     // alert($scope.isMenu(menu) + " " + menu);
     }
     $scope.isMenu = function (menu) {
       return $scope.menu === 'app/views/' + menu + '.html';
