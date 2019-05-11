@@ -1,47 +1,28 @@
+<div>
+
   <!-- Padding-->
   <div class="pt-3 pl-3 ">
     <h3>Resultados de su búsqueda:</h3>
   </div>
 
   <!--Cards-->
-  <div class="d-flex flex-row justify-content-center ">
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/bob_esponja.JPG" alt="pr-sample23" /></div>
-      <figcaption>
-        <div class="date"><span class="day">28</span><span class="month">Oct</span></div>
-        <h3>The World Ended Yesterday</h3>
-        <p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4" ng-repeat="x in books | limitTo: 3">
+        <div class="d-flex flex-row  ">
+          <figure class="snip1527" height="100%" width="100%">
+            <img  ng-src="{{x.rutaPagina}}"  />
+            <figcaption>
+              <!--<div class="date"><span class="day">28</span><span class="month">Oct</span></div> -->
+              <h3>{{x.titulo}}</h3>
+            </figcaption>
+            <a href="#"></a>
+          </figure>
+        </div>
+      </div>
 
-          You know what we need, Hobbes? We need an attitude. Yeah, you can't be cool if you don't have an attitude.
-        </p>
-      </figcaption>
-      <a href="#"></a>
-    </figure>
-    <figure class="snip1527 hover">
-      <div class="image"><img src="assets/img/el principito.jpg" alt="pr-sample24" /></div>
-      <figcaption>
-        <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
-        <h3>An Abstract Post Heading</h3>
-        <p>
+    </div>
 
-          Sometimes the surest sign that intelligent life exists elsewhere in the universe is that none of it has tried
-          to
-          contact us.
-        </p>
-      </figcaption>
-      <a href="#"></a>
-    </figure>
-    <figure class="snip1527">
-      <div class="image"><img src="assets/img/papelucho.jpg" alt="pr-sample25" /></div>
-      <figcaption>
-        <div class="date"><span class="day">01</span><span class="month">Dec</span></div>
-        <h3>Down with this sort of thing</h3>
-        <p>
-
-          I don't need to compromise my principles, because they don't have the slightest bearing on what happens to me
-          anyway.
-        </p>
-      </figcaption>
-      <a href="#"></a>
-    </figure>
   </div>
+
+</div>
