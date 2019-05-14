@@ -2,7 +2,7 @@
 include 'config.php';
 
 
-$sel2 = mysqli_query($con,"select * from libro;");
+$sel2 = mysqli_query($con,"select * from Libro;");
 $data = array();
 
 while ($row = mysqli_fetch_array($sel2)) {

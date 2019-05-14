@@ -1,7 +1,7 @@
 <?php
-$host="localhost";
+$host="127.0.0.1";
 $user="root";
-$pass="";
+$pass="hola1234";
 $db="biblioteca";
 $con = mysqli_connect($host, $user, $pass,$db);
 // Check connection

@@ -22,16 +22,39 @@
     $scope.isMenu = function (menu) {
       return $scope.menu === 'app/views/' + menu + '.html';
     };
-
+    // De preferencia hubiara hecho esto ne otro controlador pero no logre hacerlo
+    var libros;
     // http facilita la comunicación con remotos, hace una solcitud al servidor y espera una respuesta
     $http({
       method: 'GET',
       url: '././lib/js/getBooks.php'
     }).then(function successCallback(response) {
       // Aqui va todo lo que hacemos cuando logramos la conexion
-      $scope.books = response.data;
-      console.log($scope.books)
+      libros = response.data;
+      //
+      var calcularCantImg = 11;
+      console.log(libros[0].rutaPagina)
+      // 'Hola EDteam'.replace('Hola','Bienvenidos a') // 'Bienvenidos a EDteam'
+      //ruta = libros[0].rutaPagina.replace('Portada')
+      var paginas = [];
+      for (let i = 1; i < calcularCantImg+1; i++) {
+        paginas.push(libros[0].rutaPagina.replace('Portada',i))
+        
+      }
+      $scope.books = libros;
+      console.log(JSON.stringify(paginas))
+      console.log(libros)
     });
+    // ahora que tenemos en una variable el arreglo con las rutas vamos a limpiar un poco
+    //var calcularCantImg = "<?php $total_imagenes = count(glob('/lib/img/libros/Caperucita Roja/}',GLOB_BRACE)); ?>";
+    //alert(calcularCantImg); SOL: Agregar un campo llamado cant imagenes a la BD.
+    
+    
+    //Limpiamos el arreglo para que itere las paginas
+    function iteradorPaginas(ruta){
+      
+    }
+
     $scope.loadBook = function (value) {
       $scope.cambioVista("figura4");
       $scope.ruta=value
@@ -39,22 +62,8 @@
     };
 
 
+
   }]);
 
-  // Controlador antiguo que se encargaba de cargar los books
-  /*app.controller('booksController', ['$scope', '$http',booksController])
-  function booksController($scope, $http){
-    // De prueba, BORRAR AL FINAL
-    $scope.hola="assd"
-
-    // http facilita la comunicación con remotos, hace una solcitud al servidor y espera una respuesta
-    $http({
-        method: 'GET',
-        url: '././lib/js/getBooks.php'
-      }).then(function successCallback(response) {
-          // Aqui va todo lo que hacemos cuando logramos la conexion
-          $scope.books = response.data;
-          console.log($scope.books)
-        });
-}*/
+ 
 })();
