@@ -40,21 +40,4 @@
 
 
   }]);
-
-  // Controlador antiguo que se encargaba de cargar los books
-  /*app.controller('booksController', ['$scope', '$http',booksController])
-  function booksController($scope, $http){
-    // De prueba, BORRAR AL FINAL
-    $scope.hola="assd"
-
-    // http facilita la comunicación con remotos, hace una solcitud al servidor y espera una respuesta
-    $http({
-        method: 'GET',
-        url: '././lib/js/getBooks.php'
-      }).then(function successCallback(response) {
-          // Aqui va todo lo que hacemos cuando logramos la conexion
-          $scope.books = response.data;
-          console.log($scope.books)
-        });
-}*/
 })();
