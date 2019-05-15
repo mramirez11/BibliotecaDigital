@@ -17,7 +17,7 @@
     $scope.cambioVista = function (menu) {//funcion que cambia vistas
 
       $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
-     // alert($scope.isMenu(menu) + " " + menu);
+      // alert($scope.isMenu(menu) + " " + menu);
     }
     $scope.isMenu = function (menu) {
       return $scope.menu === 'app/views/' + menu + '.html';
@@ -31,39 +31,53 @@
     }).then(function successCallback(response) {
       // Aqui va todo lo que hacemos cuando logramos la conexion
       libros = response.data;
-      //
-      var calcularCantImg = 11;
+     /* var calcularCantImg = 11;
       console.log(libros[0].rutaPagina)
       // 'Hola EDteam'.replace('Hola','Bienvenidos a') // 'Bienvenidos a EDteam'
       //ruta = libros[0].rutaPagina.replace('Portada')
+      var paginas = [];
+      for (let i = 1; i < calcularCantImg + 1; i++) {
+        paginas.push(libros[0].rutaPagina.replace('Portada', i))
+
+      }
+      $scope.books = libros;
+      console.log(JSON.stringify(paginas))
+      console.log(libros)
+      */
+    });
+    // ahora que tenemos en una variable el arreglo con las rutas vamos a limpiar un poco
+    //var calcularCantImg = "<?php $total_imagenes = count(glob('/lib/img/libros/Caperucita Roja/}',GLOB_BRACE)); ?>";
+    //alert(calcularCantImg); SOL: Agregar un campo llamado cant imagenes a la BD.
+
+
+    //Limpiamos el arreglo para que itere las paginas
+    $scope.iteradorLibros = function (idLibro) {
+      //Traer esto de la BD
+      var calcularCantImg = 11;
+      var paginas = [];
+      // Traer el libro correspondiente al id
+      for (let i = 1; i < calcularCantImg+1; i++) {
+        paginas.push(libros[idLibro-1].rutaPagina.replace('Portada',i))
+        
+      }
+      $scope.paginas = paginas;
+
+    };
+
+    $scope.loadBook = function (libro){
+      $scope.cambioVista("figura4");
+      var calcularCantImg = libro.cantPaginas; // = libro.cantPaginas
       var paginas = [];
       for (let i = 1; i < calcularCantImg+1; i++) {
         paginas.push(libros[0].rutaPagina.replace('Portada',i))
         
       }
-      $scope.books = libros;
-      console.log(JSON.stringify(paginas))
-      console.log(libros)
-    });
-    // ahora que tenemos en una variable el arreglo con las rutas vamos a limpiar un poco
-    //var calcularCantImg = "<?php $total_imagenes = count(glob('/lib/img/libros/Caperucita Roja/}',GLOB_BRACE)); ?>";
-    //alert(calcularCantImg); SOL: Agregar un campo llamado cant imagenes a la BD.
-    
-    
-    //Limpiamos el arreglo para que itere las paginas
-    function iteradorPaginas(ruta){
-      
-    }
-
-    $scope.loadBook = function (value) {
-      $scope.cambioVista("figura4");
-      $scope.ruta=value
-
+      $scope.paginas = paginas;
     };
 
 
 
   }]);
 
- 
+
 })();

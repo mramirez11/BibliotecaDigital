@@ -14,7 +14,7 @@
                         <div class="carousel-inner" role="listbox">
 
                             <div class="carousel-item " ng-class="{active:!$index}" ng-repeat="x in books">
-                                <a  ng-click="loadBook(x.rutaPagina)" >
+                                <a  ng-click="loadBook(x)" >
                                     <img  class="w-100 d-block" width="620"
                                         height="460" ng-src="{{x.rutaPagina}}" >
                                 </a>
