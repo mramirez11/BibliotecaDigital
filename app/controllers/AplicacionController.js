@@ -17,7 +17,7 @@
     $scope.cambioVista = function (menu) {//funcion que cambia vistas
 
       $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
-     // alert($scope.isMenu(menu) + " " + menu);
+      // alert($scope.isMenu(menu) + " " + menu);
     }
     $scope.isMenu = function (menu) {
       return $scope.menu === 'app/views/' + menu + '.html';
@@ -32,11 +32,21 @@
       $scope.books = response.data;
       console.log($scope.books)
     });
-    $scope.loadBook = function (value) {
-      $scope.cambioVista("figura4");
-      $scope.ruta=value
 
+    $scope.loadBook = function (libro) {
+      var calcularCantImg = libro.cantPaginas; // = libro.cantPaginas
+      var paginas = [];
+      for (let i = 1; i < parseInt(calcularCantImg)+1; i++) {
+        paginas.push(libro.rutaPagina.replace('Portada',i))
+      }
+      $scope.paginas = paginas;
+      $scope.cambioVista("figura4");
     };
+
+
+
+
+
 
 
   }]);

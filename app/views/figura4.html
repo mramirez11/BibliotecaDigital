@@ -1,68 +1,12 @@
-<head>
-    <!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            background-color: white;
-        }
 
-        .row.content {
-            height: 700px;
-        }
-
-        .sidenav {
-            padding: auto;
-            background-color: white;
-            height: 100%;
-        }
-
-        .pagina {
-            height: 700px;
-            display: inline-block;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .btn {
-            position: relative;
-        }
-
-        .flechas {
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-            background-color: grey;
-            color: white;
-        }
-
-        .audio {
-            display: block;
-            margin: auto;
-            background-color: #ff5100;
-            color: white;
-        }
-
-        
-
-        footer {
-            background-color: white;
-            padding: 15px;
-        }
-    </style> -->
-
-</head>
 <h1>asd</h1>
             <div class="carousel " style="border-style: solid;
                     border-width: 5px; border-radius: 5px;" data-ride="carousel" id="carousel-1">
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item " ng-class="{active:!$index}" >
+
+                    <div class="carousel-item " ng-class="{active:!$index}" ng-repeat="pagina in paginas" >
                         <a class="d-flex align-items-center justify-content-center min-vh-100">
-                            <img ng-src="{{ruta}}">
+                            <img ng-src="{{pagina}}">
                         </a>
                     </div>
                 </div>
