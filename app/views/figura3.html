@@ -7,16 +7,12 @@
             <div class="col-lg-8" style="height:492px;">
                 <div class="carrusel">
                     <div class="carousel " style="border-style: solid;
-                    border-width: 5px; border-radius: 5px;" data-ride="carousel" id="carousel-1">
+                    border-width: 6px; " data-ride="carousel" id="carousel-1">
                         <div class="carousel-inner" role="listbox">
-
                             <div class="carousel-item " ng-class="{active:!$index}" ng-repeat="x in books">
                                 <a ng-click="loadBook(x)">
                                     <img class="w-100 d-block" width="620" height="460"  ng-src="{{x.rutaPagina}}">
                                 </a>
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h4 style=color:black;>{{x.titulo}}</h4>
-                                </div>
                             </div>
                         </div>
                         <div>
