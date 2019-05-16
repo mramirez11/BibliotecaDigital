@@ -4,23 +4,23 @@
 -- Version: 1.0
 -- Project: Name of the project
 -- Author: Misael
-
+ 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
+ 
 CREATE SCHEMA IF NOT EXISTS `biblioteca` DEFAULT CHARACTER SET utf8 ;
-
+ 
 CREATE TABLE IF NOT EXISTS `biblioteca`.`Libro` (
   `idLibro` INT(11) auto_increment NOT NULL,
   `titulo` VARCHAR(45) NULL DEFAULT NULL,
-  `rutaPagina` VARCHAR(45) NULL DEFAULT NULL,
-  `rutaAudio` VARCHAR(45) NULL DEFAULT NULL,
+  `rutaPagina` VARCHAR(100) NULL DEFAULT NULL,
+  `rutaAudio` VARCHAR(100) NULL DEFAULT NULL,
   `cantPaginas` INT(111) NULL DEFAULT NULL,
   PRIMARY KEY (`idLibro`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
-COMMENT = '	';
+COMMENT = '  ';
 
 CREATE TABLE IF NOT EXISTS `biblioteca`.`Categoria` (
   `idCategoria`  INT(11) auto_increment NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`Categoria` (
   PRIMARY KEY (`idCategoria`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
+ 
 CREATE TABLE IF NOT EXISTS `biblioteca`.`Libro_has_Categoria` (
   `Libro_idLibro` INT(11) NOT NULL,
   `Categoria_idCategoria` INT(11) NOT NULL,
@@ -51,12 +51,12 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `biblioteca`.`Audio_Guia` (
   `idAudio_Guia` INT(11) auto_increment NOT NULL,
   `titulo` VARCHAR(45) NULL DEFAULT NULL,
-  `ruta` VARCHAR(45) NULL DEFAULT NULL,
+  `ruta` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`idAudio_Guia`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-
+ 
+ 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
