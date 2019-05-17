@@ -33,6 +33,8 @@
 
     $scope.loadBook = function (libro) {
       var calcularCantImg = libro.cantPaginas; // = libro.cantPaginas
+      $scope.cantPaginas = parseInt(calcularCantImg)
+
       var paginas = [];
       for (let i = 1; i < parseInt(calcularCantImg) + 1; i++) {
         paginas.push(libro.rutaPagina.replace('Portada', i))
@@ -41,23 +43,23 @@
       $scope.cambioVista("figura4");
     };
 
+
     $scope.search = function (menu) {//funcion que cambia vistas
       //console.log($scope.valueSearch)
       var booksFind = [];
-
       for (let i = 0; i < $scope.books.length; i++) {
-        if ($scope.valueSearch == ($scope.books[i].titulo).toLowerCase()) {
+        if ($scope.valueSearch.toLowerCase() == ($scope.books[i].titulo).toLowerCase()) {
           booksFind.push($scope.books[i])
         }
       }
       $scope.bookFind = booksFind;
-      $scope.notFound = "No se encontraron libros"
+      $scope.notFound = "No existen coincidencias de la búsqueda, vuelva a intentarlo"
       console.log(booksFind)
-
       $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
       // alert($scope.isMenu(menu) + " " + menu);
     }
 
+  
 
   }]);
 })();

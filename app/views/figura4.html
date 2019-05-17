@@ -1,24 +1,26 @@
-            <div class="carousel " style="border-style: solid;
-                    border-width: 5px; border-radius: 5px;" data-ride="carousel" id="carousel-1">    
-                <div class="carousel-inner" role="listbox">
+{{cantPaginas}}
+ss
+<div class="carousel " style="border-style: solid;
+                    border-width: 5px; border-radius: 5px;" data-ride="carousel" id="carousel-1">
+    <div class="carousel-inner" role="listbox">
 
-                    <div class="carousel-item " ng-class="{active:!$index}" ng-repeat="pagina in paginas" >
-                        <a class="d-flex align-items-center justify-content-center min-vh-100">
-                            <img width ="1080" height="600" ng-src="{{pagina}}">
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
+        <div class="carousel-item " ng-class="{active:!$index}" ng-repeat="pagina in paginas">
+            <a class="d-flex align-items-center justify-content-center min-vh-100">
+                <img width="1080" height="600" ng-src="{{pagina}}">
+            </a>
+        </div>
+    </div>
+    <div>
+        <a  class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
 
 
 
