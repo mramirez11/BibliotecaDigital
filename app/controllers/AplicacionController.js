@@ -43,25 +43,21 @@
 
     $scope.search = function (menu) {//funcion que cambia vistas
       //console.log($scope.valueSearch)
-      var booksFind=[];
+      var booksFind = [];
 
-      for(let i=0 ; i< 12 ;i++){
-        if($scope.valueSearch == ($scope.books[i].titulo).toLowerCase()){
+      for (let i = 0; i < $scope.books.length; i++) {
+        if ($scope.valueSearch == ($scope.books[i].titulo).toLowerCase()) {
           booksFind.push($scope.books[i])
         }
       }
-      $scope.bookFind= booksFind;
+      $scope.bookFind = booksFind;
+      $scope.notFound = "No se encontraron libros"
       console.log(booksFind)
 
       $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
       // alert($scope.isMenu(menu) + " " + menu);
     }
 
-
-
-    $scope.reload = function () {
-      location.reload();
-  };
 
   }]);
 })();
