@@ -2,22 +2,15 @@
 
   <!-- Padding-->
   <div class="pt-3 pl-3 ">
-    <h3>Resultados de su búsqqueda:</h3>
+    <h3>Resultados de su búsqueda:</h3>
   </div>
-  {{valueSearch}}
   <!--Cards-->
   <div class="container">
     <div class="row">
       <div class="col-sm-4" ng-repeat="x in bookFind">
-        <div class="d-flex flex-row  ">
+        <div ng-click="loadBook(x)" class="d-flex flex-row  ">
           <figure class="snip1527" >
             <img  height=200 width="100%" ng-src="{{x.rutaPagina}}"  />
-            <figcaption>
-              <!--<div class="date"><span class="day">28</span><span class="month">Oct</span></div> -->
-              <h5>{{x.titulo}}</h5>
-            </figcaption>
-           
-            <a href="#"></a>
           </figure>
         </div>
       </div>
