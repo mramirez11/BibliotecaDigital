@@ -8,11 +8,9 @@
   // bind entre las variables del archivo javascript hacia el DOM
   app.controller('applicationController', ['$scope', '$http', function ($scope, $http) {
     $scope.ejemplo = 'Esto es un ejemplo de Angular JS';
-
-
+    $scope.books;
     //Desarrollamos funciones que nos permitirán lograr una interacción con un tab de bootstrap
     //con un ng-include de angular
-    //$scope.menu='app/views/figura2.html';
     $scope.menu = 'app/views/figura3.html';
     $scope.cambioVista = function (menu) {//funcion que cambia vistas
 
@@ -36,18 +34,34 @@
     $scope.loadBook = function (libro) {
       var calcularCantImg = libro.cantPaginas; // = libro.cantPaginas
       var paginas = [];
-      for (let i = 1; i < parseInt(calcularCantImg)+1; i++) {
-        paginas.push(libro.rutaPagina.replace('Portada',i))
+      for (let i = 1; i < parseInt(calcularCantImg) + 1; i++) {
+        paginas.push(libro.rutaPagina.replace('Portada', i))
       }
       $scope.paginas = paginas;
       $scope.cambioVista("figura4");
     };
 
+    $scope.search = function (menu) {//funcion que cambia vistas
+      //console.log($scope.valueSearch)
+      var booksFind=[];
+
+      for(let i=0 ; i< 12 ;i++){
+        if($scope.valueSearch == ($scope.books[i].titulo).toLowerCase()){
+          booksFind.push($scope.books[i])
+        }
+      }
+      $scope.bookFind= booksFind;
+      console.log(booksFind)
+
+      $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
+      // alert($scope.isMenu(menu) + " " + menu);
+    }
 
 
 
-
-
+    $scope.reload = function () {
+      location.reload();
+  };
 
   }]);
 })();

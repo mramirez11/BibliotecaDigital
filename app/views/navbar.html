@@ -11,8 +11,9 @@
   </div>
   <div class="float-lg-right">
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline my-2 my-sm-0" type="submit" ng-click="cambioVista('figura5')">Search</button>
+      <!--ngModel permite transmitir datos al controller-->
+      <input class="form-control mr-sm-2" ng-model="valueSearch" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline my-2 my-sm-0" type="submit" ng-click="search('figura5')">Search</button>
     </form>
   </div>
 </nav>
