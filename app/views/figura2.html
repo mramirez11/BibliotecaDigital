@@ -1,11 +1,8 @@
+<link rel="stylesheet" href="lib/css/styles_screen2.css">
 <div>
-
-
   <!-- Padding-->
   <div class="pt-3 pl-3 text-center">
     <h3>Selecciona tus 5 libros favoritos</h3>
-
-    {{hola}}
   </div>
 
  <!--Cards-->
@@ -13,8 +10,7 @@
   <div class="row">
     <div class="col-sm-2" ng-repeat="x in books" >
       <div class="d-flex flex-row ">
-          <img style="padding-bottom: 10%" height=200 width="100%" ng-src="{{x.rutaPagina}}"  />
-
+          <img ng-class="estaSeleccionado(x) ? 'libro_seleccionado':'libro_deseleccionado'"  ng-src="{{x.rutaPagina}}" ng-click="seleccionarLibro(x)"/>
       </div>
     </div>
   </div>

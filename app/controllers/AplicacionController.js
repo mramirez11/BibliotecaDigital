@@ -18,7 +18,7 @@
 
       $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
       // alert($scope.isMenu(menu) + " " + menu);
-    }
+    };
     $scope.isMenu = function (menu) {
       return $scope.menu === 'app/views/' + menu + '.html';
     };
@@ -41,6 +41,36 @@
       }
       $scope.paginas = paginas;
       $scope.cambioVista("figura4");
+    };
+
+    //// Aqui implementamos la seleccion de libros de la ventana 2 
+    var librosSeleccionados = [];
+    console.log(librosSeleccionados)
+    $scope.seleccionarLibro = function (libro) {
+      
+
+      if (librosSeleccionados.includes(libro)) {
+        var posicion = librosSeleccionados.indexOf(libro)
+        librosSeleccionados.splice(posicion,1);
+        console.log(librosSeleccionados);
+      } else {
+        if (librosSeleccionados.length == 5 ) {
+          alert("Seleccionaste mas de 5 libros")
+        } else {
+        librosSeleccionados.push(libro);
+        console.log(librosSeleccionados);
+        }
+      }
+    };
+    $scope.estaSeleccionado = function (libro) {
+      if (librosSeleccionados.includes(libro)) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+    $scope.limpiarLibrosSeleccionados = function () {
+      librosSeleccionados = [];
     };
 
 
