@@ -22,6 +22,7 @@
     };
 
     // http facilita la comunicación con remotos, hace una solcitud al servidor y espera una respuesta
+    // Recoge los books
     $http({
       method: 'GET',
       url: '././lib/js/getBooks.php'
@@ -108,151 +109,78 @@
 
     /// Aqui se haran algoritmos para hacer la recomendacion
     $scope.recomendarLibros = function () {
-      // array que almacena los libros_categorias que fueron seleccionadas
-      var libroCategoriaBusqueda = [];
-      // Primer ciclo que recorre el array de libros seleccionados en la pantalla anterior
+      console.log("Libros Seleccionados")
+      console.log(librosSeleccionados)
+
+      var librosEncontradosPorAlgoritmo = []
       for (let i = 0; i < librosSeleccionados.length; i++) {
-        // Segundo ciclo que recorre el array de la bd que contiene la tabla muchos a muchos
+        var idLibroSeleccionado = librosSeleccionados[i].idLibro
+        var n = []
         for (let j = 0; j < $scope.libro_has_categoria.length; j++) {
-          // Condicion que verifica que el idLibro seleccionado, existe en la tabla muchos a muchos
-          if (librosSeleccionados[i].idLibro == $scope.libro_has_categoria[j].Libro_idLibro) {
-            // Si la condición se cumple, pusheamos el libro_categoria
-            libroCategoriaBusqueda.push($scope.libro_has_categoria[j])
-          }
-        }
-      }
-      console.log("LibroCategoriaBusqueda")
-      console.log(libroCategoriaBusqueda)
-      var c1 = [];
-      var c2 = [];
-      var c3 = [];
-      var c4 = [];
-      var c5 = [];
-      var c6 = [];
-      for (let i = 0; i < libroCategoriaBusqueda.length; i++) {
-        if (libroCategoriaBusqueda[i].Categoria_idCategoria == 1) {
-          c1.push(libroCategoriaBusqueda[i])
-        }
-        if (libroCategoriaBusqueda[i].Categoria_idCategoria == 2) {
-          c2.push(libroCategoriaBusqueda[i])
-        }
-        if (libroCategoriaBusqueda[i].Categoria_idCategoria == 3) {
-          c3.push(libroCategoriaBusqueda[i])
-        }
-        if (libroCategoriaBusqueda[i].Categoria_idCategoria == 4) {
-          c4.push(libroCategoriaBusqueda[i])
-        }
-        if (libroCategoriaBusqueda[i].Categoria_idCategoria == 5) {
-          c5.push(libroCategoriaBusqueda[i])
-        }
-        if (libroCategoriaBusqueda[i].Categoria_idCategoria == 6) {
-          c6.push(libroCategoriaBusqueda[i])
-        }
-      }
-      console.log(c1)
+          if ($scope.libro_has_categoria[j].Libro_idLibro == idLibroSeleccionado) {
+            n.push($scope.libro_has_categoria[j])
 
-      //console.log("Clasico: "+ c1  +" Niños: "+c2 +" Princesa: "+c3+" Animales: "+c4 + " Peliculas: "+ c5 + "Valores morales: "+c6)
+            // Random
+            var min = 0;
+            var max = n.length;
+            var random = Math.floor(Math.random() * (+max - +min)) + +min;
 
-      var resultado = []
-      if (c1.length > 0) {
-        var min = 1
-        var max = c1.length
-        var azar = Math.floor(Math.random() * (+max - +min)) + +min;
-        console.log("C1 Max: " + max + " Min: " + min + "Resultado: " + azar)
-        
+            var LibroAleatorio = n[random]
+            console.log("Libro Aleatorio")
+            console.log(LibroAleatorio)
+            var categoriaAleatoria = LibroAleatorio.Categoria_idCategoria
+            console.log("Categoria Aleatoria")
+            console.log(categoriaAleatoria)
 
-        
+            var librosConCategoriaAleatoria = []
+            for (let i = 0; i < $scope.libro_has_categoria.length; i++) {
+              if ($scope.libro_has_categoria[i].Categoria_idCategoria == categoriaAleatoria) {
+                librosConCategoriaAleatoria.push($scope.libro_has_categoria[i])
+              }
+            }
+            console.log("Libros que tienen la categoria aleatoria")
+            console.log(librosConCategoriaAleatoria)
 
-      }
+            max = librosConCategoriaAleatoria.length
+            random = Math.floor(Math.random() * (+max - +min)) + +min;
+            var Libro_has_CategoriaConCategoriaAleatoriaElegido = []
+            Libro_has_CategoriaConCategoriaAleatoriaElegido.push(librosConCategoriaAleatoria[random])
 
-      if (c2.length > 0) {
-        var min = 1
-        var max = c2.length
-        var azar = Math.floor(Math.random() * (+max - +min)) + +min;
-        for (let i = 0; i < $scope.categoria.length; i++) {
-          if ($scope.categoria[i].idCategoria == azar) {
-            console.log($scope.categoria[i].titulo + " Entre " + azar)
-            
-            console.log(resultado)
+            console.log("Libro_has_CategoriaConCategoriaAleatoriaElegido")
+            console.log(Libro_has_CategoriaConCategoriaAleatoriaElegido)
+
+            var idLibro_has_CategoriaConCategoriaAleatoriaElegido = Libro_has_CategoriaConCategoriaAleatoriaElegido[0].Libro_idLibro
+            console.log("idLibro_has_CategoriaConCategoriaAleatoriaElegido")
+            console.log(idLibro_has_CategoriaConCategoriaAleatoriaElegido)
+            var libroEncontradoPorAlgoritmo = ""
+            for (let i = 0; i < $scope.books.length; i++) {
+              // console.log($scope.books[i].idLibro+" - "+ idLibroConCategoriaAleatoriaElegido)
+              if ($scope.books[i].idLibro == idLibro_has_CategoriaConCategoriaAleatoriaElegido) {
+                libroEncontradoPorAlgoritmo = $scope.books[i]
+                break;
+              }
+            }
+            console.log("libroEncontradoPorAlgoritmo")
+            console.log(libroEncontradoPorAlgoritmo)
           }
         }
 
-        console.log("C2 Max: " + max + " Min: " + min + "Resultado: " + azar)
-      }
-      console.log(resultado)
-      if (c3.length > 0) {
-        var min = 1
-        var max = c3.length
-        var azar = Math.floor(Math.random() * (+max - +min)) + +min;
-        for (let i = 0; i < $scope.categoria.length; i++) {
-          if ($scope.categoria[i].idCategoria == azar) {
-            console.log($scope.categoria[i].titulo + " Entre " + azar)
-            
-            console.log(resultado)
-          }
+        if (librosEncontradosPorAlgoritmo.includes(libroEncontradoPorAlgoritmo)) {
+          break;
+        } else {
+          librosEncontradosPorAlgoritmo.push(libroEncontradoPorAlgoritmo)
         }
 
-        console.log("C3 Max: " + max + " Min: " + min + "Resultado: " + azar)
+
+
+        console.log("--------------------------")
       }
-      console.log(resultado)
-      if (c4.length > 0) {
-        var min = 1
-        var max = c4.length
-        var azar = Math.floor(Math.random() * (+max - +min)) + +min;
-        for (let i = 0; i < $scope.categoria.length; i++) {
-          if ($scope.categoria[i].idCategoria == azar) {
-            console.log($scope.categoria[i].titulo + " Entre " + azar)
-            
-            console.log(resultado)
-          }
-        }
 
-        console.log("C4 Max: " + max + " Min: " + min + "Resultado: " + azar)
-      }
-      console.log(resultado)
-      if (c5.length > 0) {
-        var min = 1
-        var max = c5.length
-        var azar = Math.floor(Math.random() * (+max - +min)) + +min;
-        for (let i = 0; i < $scope.categoria.length; i++) {
-          if ($scope.categoria[i].idCategoria == azar) {
-            console.log($scope.categoria[i].titulo + " Entre " + azar)
-            
-            console.log(resultado)
-          }
-        }
-
-        console.log("C5 Max: " + max + " Min: " + min + "Resultado: " + azar)
-      }
-      console.log(resultado)
-      if (c6.length > 0) {
-        var min = 1
-        var max = c6.length
-        var azar = Math.floor(Math.random() * (+max - +min)) + +min;
-        for (let i = 0; i < $scope.categoria.length; i++) {
-          if ($scope.categoria[i].idCategoria == azar) {
-            console.log($scope.categoria[i].titulo + " Entre " + azar)
-            
-            console.log(resultado)
-          }
-        }
-
-        console.log("C6 Max: " + max + " Min: " + min + "Resultado: " + azar)
-      }
-      console.log(resultado)
-
-      //$scope.resultado=resultado
-
-      /* console.log(c1);
-       console.log(c2);
-       console.log(c3);
-       console.log(c4);
-       console.log(c5);
-       console.log(c6); */
-
+      console.log("LibrosEncontradosPorAlgoritmo")
+      console.log(librosEncontradosPorAlgoritmo)
+      $scope.resultado = librosEncontradosPorAlgoritmo
       $scope.cambioVista("figura3");
     }
-
 
     $scope.search = function (menu) {//funcion que cambia vistas
       //console.log($scope.valueSearch)
