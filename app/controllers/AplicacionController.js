@@ -72,6 +72,16 @@
     $scope.limpiarLibrosSeleccionados = function () {
       librosSeleccionados = [];
     };
+    $scope.evaluarlibros = function () {
+      if (librosSeleccionados.length == 5) {
+        console.log(librosSeleccionados.length)
+        return true;
+      } else {
+        return false;
+      }
+    };
+    /// Aqui se haran algoritmos para hacer la recomendacion
+   
 
 
 
