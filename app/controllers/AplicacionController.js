@@ -126,11 +126,11 @@
             var random = Math.floor(Math.random() * (+max - +min)) + +min;
 
             var LibroAleatorio = n[random]
-            console.log("Libro Aleatorio")
-            console.log(LibroAleatorio)
+            // console.log("Libro Aleatorio")
+            // console.log(LibroAleatorio)
             var categoriaAleatoria = LibroAleatorio.Categoria_idCategoria
-            console.log("Categoria Aleatoria")
-            console.log(categoriaAleatoria)
+            // console.log("Categoria Aleatoria")
+            //  console.log(categoriaAleatoria)
 
             var librosConCategoriaAleatoria = []
             for (let i = 0; i < $scope.libro_has_categoria.length; i++) {
@@ -138,20 +138,20 @@
                 librosConCategoriaAleatoria.push($scope.libro_has_categoria[i])
               }
             }
-            console.log("Libros que tienen la categoria aleatoria")
-            console.log(librosConCategoriaAleatoria)
+            //   console.log("Libros que tienen la categoria aleatoria")
+            //   console.log(librosConCategoriaAleatoria)
 
             max = librosConCategoriaAleatoria.length
             random = Math.floor(Math.random() * (+max - +min)) + +min;
             var Libro_has_CategoriaConCategoriaAleatoriaElegido = []
             Libro_has_CategoriaConCategoriaAleatoriaElegido.push(librosConCategoriaAleatoria[random])
 
-            console.log("Libro_has_CategoriaConCategoriaAleatoriaElegido")
-            console.log(Libro_has_CategoriaConCategoriaAleatoriaElegido)
+            //    console.log("Libro_has_CategoriaConCategoriaAleatoriaElegido")
+            //    console.log(Libro_has_CategoriaConCategoriaAleatoriaElegido)
 
             var idLibro_has_CategoriaConCategoriaAleatoriaElegido = Libro_has_CategoriaConCategoriaAleatoriaElegido[0].Libro_idLibro
-            console.log("idLibro_has_CategoriaConCategoriaAleatoriaElegido")
-            console.log(idLibro_has_CategoriaConCategoriaAleatoriaElegido)
+            //    console.log("idLibro_has_CategoriaConCategoriaAleatoriaElegido")
+            //    console.log(idLibro_has_CategoriaConCategoriaAleatoriaElegido)
             var libroEncontradoPorAlgoritmo = ""
             for (let i = 0; i < $scope.books.length; i++) {
               // console.log($scope.books[i].idLibro+" - "+ idLibroConCategoriaAleatoriaElegido)
@@ -160,26 +160,23 @@
                 break;
               }
             }
-            console.log("libroEncontradoPorAlgoritmo")
-            console.log(libroEncontradoPorAlgoritmo)
+            //      console.log("libroEncontradoPorAlgoritmo")
+            //      console.log(libroEncontradoPorAlgoritmo)
           }
         }
-
         if (librosEncontradosPorAlgoritmo.includes(libroEncontradoPorAlgoritmo)) {
           break;
         } else {
           librosEncontradosPorAlgoritmo.push(libroEncontradoPorAlgoritmo)
         }
-
-
-
-        console.log("--------------------------")
+        //   console.log("--------------------------")
       }
 
       console.log("LibrosEncontradosPorAlgoritmo")
       console.log(librosEncontradosPorAlgoritmo)
       $scope.resultado = librosEncontradosPorAlgoritmo
       $scope.cambioVista("figura3");
+      $scope.limpiarLibrosSeleccionados()
     }
 
     $scope.search = function (menu) {//funcion que cambia vistas
