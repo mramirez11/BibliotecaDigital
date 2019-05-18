@@ -81,7 +81,13 @@
       }
     };
     /// Aqui se haran algoritmos para hacer la recomendacion
-   
+   $scope.recomendarLibros = function () {
+     var libros = librosSeleccionados;
+     for (let i = 0; i < librosSeleccionados.length; i++) {
+       
+       
+     }
+   }
 
 
 
