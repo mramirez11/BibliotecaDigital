@@ -13,7 +13,7 @@ INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES (
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('El pirata bueno', 'lib/img/libros/El pirata bueno/Portada.png',13);
 
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('1', 'Clasico');
-INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('2', 'NiNos');
+INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('2', 'Ninos');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('3', 'Princesa');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('4', 'Animales');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('5', 'Peliculas');
@@ -37,5 +37,8 @@ INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCa
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('9', '4');
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('10', '5');
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('10', '4');
+INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('11', '6');
+INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('12', '6');
+
 
 SELECT * FROM biblioteca.Libro;
