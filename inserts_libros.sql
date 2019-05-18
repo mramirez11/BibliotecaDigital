@@ -6,19 +6,17 @@ INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES (
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('Hansel y Gretel', 'lib/img/libros/Hansel y Gretel/Portada.png',11); 
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('La cenicienta', 'lib/img/libros/La cenicienta/Portada.png',21); 
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('La nube avariciosa', 'lib/img/libros/La nube avariciosa/Portada.png',0); 
-INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('Libro de la selva', 'lib/img/libros/Libro de la selva/Portada.png',27); 
+INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('Libro de la selva', 'lib/img/libros/Libro de la selva/Portada.png',7); 
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('Los tres cerditos', 'lib/img/libros/Los tres cerditos/Portada.png',7); 
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('Rey leon', 'lib/img/libros/Rey leon/Portada.png',9); 
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('El genio chapuzas', 'lib/img/libros/El genio chapuzas/Portada.png',17); 
 INSERT INTO `biblioteca`.`Libro` (`titulo`, `rutaPagina`,`cantPaginas`) VALUES ('El pirata bueno', 'lib/img/libros/El pirata bueno/Portada.png',13);
-
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('1', 'Clasico');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('2', 'Niños');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('3', 'Princesa');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('4', 'Animales');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('5', 'Peliculas');
 INSERT INTO `biblioteca`.`Categoria` (`idCategoria`, `titulo`) VALUES ('6', 'Valores morales');
-
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('1', '1');
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('1', '3');
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('2', '1');
