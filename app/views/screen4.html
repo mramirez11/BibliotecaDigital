@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Biblioteca Infantil</title>
+</head>
+
+<body>
+    <!--Páginas-->
+    <div class="carousel " data-ride="carousel" id="carousel-1">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item " ng-class="{active:!$index}" ng-repeat="pagina in paginas">
+                <a class="d-flex align-items-center justify-content-center min-vh-100">
+                    <img width="1080" height="600" ng-src="{{pagina}}">
+                </a>
+            </div>
+        </div>
+        <!--Iconos del carrusel-->
+        <div>
+            <a  class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+                <span><img src="lib/img/iconos/iconleft.png"/></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+                <span><img src="lib/img/iconos/iconright.png"/></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <!--Activar audio-->
+    <footer class="container-fluid text-center">
+        <button type="button" class="btn btn-default audio">
+            <span class="glyphicon glyphicon-volume-up"></span> Activar audio
+        </button>
+    </footer>
+</body>

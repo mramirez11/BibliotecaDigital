@@ -1,0 +1,35 @@
+/*!
+ * Start Bootstrap - Heroic Features (https://startbootstrap.com/template-overviews/heroic-features)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-heroic-features/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+}
+
+.libro_seleccionado{
+  padding-bottom: 10%;
+  height:200;
+  width: 100%;
+  background-color:#ffc158;
+}
+.libro_deseleccionado{
+  padding-bottom: 10%;
+  height:200;
+  width: 100%;
+  
+}
+.sky {
+  color:white;
+  background-color:lightblue;
+  padding:20px;
+  font-family:"Courier New";
+}
+.tomato {
+  background-color:coral;
+  padding:40px;
+  font-family:Verdana;
+}
+
+
+

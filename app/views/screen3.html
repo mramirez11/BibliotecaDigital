@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Biblioteca Infantil</title>
+</head>
+
+<body>
+  <!-- Contenido -->
+  <div class="container">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-12" style="background-color:white;"><br></div>
+      </div>
+      <h6 class="text-center text-danger">¡Gracias por compartir lo que te gusta!</h6>
+      <h1 class="text-center">Estos libros también te podrían entretener</h1>
+    </div>
+    <!--Carrusel con los libros recomendados-->
+    <div class="row text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2"> </div>
+          <div class="col-lg-8" style="height:492px;">
+            <div class="carrusel">
+              <div class="carousel " data-ride="carousel" id="carousel-1">
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item " ng-class="{active:!$index}" ng-repeat="x in resultado">
+                    <a ng-click="loadBook(x)">
+                      <img class="w-100 d-block shadow p-3 mb-5 bg-white rounded" width="620" height="460"  ng-src="{{x.rutaPagina}}">
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+                    <span><img src="lib/img/iconos/iconleft.png"/></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+                    <span><img src="lib/img/iconos/iconright.png"/></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-1" ng-repeat="x in resultado" data-slide-to="{{x.idLibro}}"
+                  class="active"></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+      <div class="container text-center">
+        <h6 class="text-danger">¿No te gustan? aquí tienes las Categorías donde encontrarás más libros</h6> 
+        <h1 class="text-center">Categorías</h1></div>
+        <div class="row text-center">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-100">
+              <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    -->
+  </div>
+</body>
+</html>

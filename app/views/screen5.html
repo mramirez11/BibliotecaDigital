@@ -1,5 +1,13 @@
-<div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Biblioteca Infantil</title>
+</head>
 
+</body>
+<div>
   <!-- Padding-->
   <div class="pt-3 pl-3 ">
     <h3>Resultados de su búsqueda:</h3>
@@ -9,7 +17,7 @@
     <div class="row">
       <div class="col-sm-4" ng-repeat="x in bookFind">
         <div ng-click="loadBook(x)" class="d-flex flex-row  ">
-          <figure class="snip1527" >
+          <figure class="snip1527">
             <img  height=200 width="100%" ng-src="{{x.rutaPagina}}"  />
           </figure>
         </div>
@@ -18,5 +26,5 @@
   </div>
   <!-- ng-show permite ocultar o mostrar el elemento, en base a si se encontró o no libros-->
   <h1 ng-show='bookFind.length==0'>{{notFound}}</h1>
-
 </div>
+</body>

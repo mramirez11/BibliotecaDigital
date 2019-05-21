@@ -11,7 +11,7 @@
     $scope.books;
     //Desarrollamos funciones que nos permitirán lograr una interacción con un tab de bootstrap
     //con un ng-include de angular
-    $scope.menu = 'app/views/figura2.html';
+    $scope.menu = 'app/views/screen1.html';
     $scope.cambioVista = function (menu) {//funcion que cambia vistas
 
       $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
@@ -41,7 +41,7 @@
         paginas.push(libro.rutaPagina.replace('Portada', i))
       }
       $scope.paginas = paginas;
-      $scope.cambioVista("figura4");
+      $scope.cambioVista("screen4");
     };
 
     //// Aqui implementamos la seleccion de libros de la ventana 2 
@@ -175,7 +175,7 @@
       console.log("LibrosEncontradosPorAlgoritmo")
       console.log(librosEncontradosPorAlgoritmo)
       $scope.resultado = librosEncontradosPorAlgoritmo
-      $scope.cambioVista("figura3");
+      $scope.cambioVista("screen3");
       $scope.limpiarLibrosSeleccionados()
     }
 

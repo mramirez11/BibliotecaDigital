@@ -1,17 +1,15 @@
-<nav class="navbar navbar-dark bg-dark">
-  <!--NavBar-->
-  
-  <div>
-    <a href="#" ng-click="cambioVista('figura2')">
-       
-      <h4>Biblioteca Digital</h4>
-    </a>
-  </div>
-  <div class="float-lg-right">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <img src="lib/img/iconos/logo.png" alt="" title="home" ng-click="cambioVista('screen1')"/>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+    </ul>
     <form class="form-inline my-2 my-lg-0">
-      <!--ngModel permite transmitir datos al controller-->
-      <input class="form-control mr-sm-2" ng-model="valueSearch" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline my-2 my-sm-0" type="submit" ng-click="search('figura5')">Search</button>
+      <input class="form-control mr-sm-2" type="text" placeholder="Buscar" ng-model="valueSearch" aria-label="Buscar">
+      <button type="button" class="btn btn-danger btn-lg"  type="submit" ng-click="search('screen5')">Buscar</button>
     </form>
-  </div>
+  </div> 
 </nav>
+

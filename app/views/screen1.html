@@ -1,0 +1,39 @@
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Biblioteca Infantil</title>
+  </head>
+  
+  <body>
+    <!-- Barra -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <a href="index.html"><img src="lib/img/iconos/logo.png" alt="" title="home" /></a>  
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+      </div> 
+    </nav>
+    <!-- Contenido -->
+    <div class="container text-center">
+      <!-- Jumbotron Header -->
+      <header class="jumbotron my-4">
+        <img src="lib/img/iconos/imglogo.png" alt="" title="imglogo"/>
+        <h1 class="display-3">¿Sabes leer?</h1>
+        <p class="lead">Desactiva el audio presionando aquí</p>
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="">
+            <label class="custom-control-label" for="customSwitch1">Audio</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-danger btn-lg" ng-click="cambioVista('screen2')">¡Comenzar!</button>
+      </header>
+    </div>
+  </body>
+  </html>
+  
