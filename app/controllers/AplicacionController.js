@@ -41,8 +41,20 @@
         paginas.push(libro.rutaPagina.replace('Portada', i))
       }
       $scope.paginas = paginas;
+      $scope.tmpClicks = 0;
       $scope.cambioVista("screen4");
     };
+     // funcion que hara que bloqueara botones
+     $scope.tmpClicks;
+     $scope.sumar = function () {
+       $scope.tmpClicks++;
+       console.log($scope.tmpClicks);
+     };
+     $scope.restar = function () {
+       $scope.tmpClicks--;
+       console.log($scope.tmpClicks);
+     };
+ 
 
     //// Aqui implementamos la seleccion de libros de la ventana 2 
     var librosSeleccionados = [];
