@@ -44,17 +44,17 @@
       $scope.tmpClicks = 0;
       $scope.cambioVista("screen4");
     };
-     // funcion que hara que bloqueara botones
-     $scope.tmpClicks;
-     $scope.sumar = function () {
-       $scope.tmpClicks++;
-       console.log($scope.tmpClicks);
-     };
-     $scope.restar = function () {
-       $scope.tmpClicks--;
-       console.log($scope.tmpClicks);
-     };
- 
+    // funcion que hara que bloqueara botones
+    $scope.tmpClicks;
+    $scope.sumar = function () {
+      $scope.tmpClicks++;
+      console.log($scope.tmpClicks);
+    };
+    $scope.restar = function () {
+      $scope.tmpClicks--;
+      console.log($scope.tmpClicks);
+    };
+
 
     //// Aqui implementamos la seleccion de libros de la ventana 2 
     var librosSeleccionados = [];
@@ -192,11 +192,26 @@
     }
 
     $scope.search = function (menu) {//funcion que cambia vistas
-      //console.log($scope.valueSearch)
+      //  console.log("Valor busqueda")
+      //  console.log($scope.valueSearch)
       var booksFind = [];
+      // Separamos el valor de la busqueda y lo almacenamos en un array
+      var word = $scope.valueSearch.toLowerCase()
+      var wordSeparate = word.split(" ");
+      //  console.log("palabra separada")
+      //   console.log(wordSeparate.length)
+      // Establecemos el largo de la palabra separada. 
+      //Se agrega la condicion en el caso particular de largo==1 por la validación del for
+      var largo = wordSeparate.length
+      if (largo == 1) largo++;
+      // Ciclo que recorre todos los libros
       for (let i = 0; i < $scope.books.length; i++) {
-        if ($scope.valueSearch.toLowerCase() == ($scope.books[i].titulo).toLowerCase()) {
-          booksFind.push($scope.books[i])
+        var titleBook = $scope.books[i].titulo.toLowerCase()
+        // Ciclo que recorre el arreglo del valor de la búsqueda
+        for (let j = 0; j < largo - 1; j++) {
+          if (titleBook.includes(wordSeparate[j])) {
+            booksFind.push($scope.books[i])
+          }
         }
       }
       $scope.bookFind = booksFind;
