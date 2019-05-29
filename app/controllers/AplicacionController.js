@@ -32,6 +32,7 @@
       console.log($scope.books)
     });
 
+    var audio ;
     $scope.loadBook = function (libro) {
       var calcularCantImg = libro.cantPaginas; // = libro.cantPaginas
       $scope.cantPaginas = parseInt(calcularCantImg)
@@ -42,19 +43,39 @@
       }
       $scope.paginas = paginas;
       $scope.tmpClicks = 0;
+      // Codigo para audio
+      var audios = [];
+      for (let i = 1; i < parseInt(calcularCantImg) +1; i++) {
+        audios.push(libro.rutaAudio.replace('Portada.png', i+".mp3"))
+      }
+      $scope.audios=audios;
+      audio = new Audio($scope.audios[0]);
+      audio.play();
       $scope.cambioVista("screen4");
+      
+
     };
+    $scope.playAudio= function(id){
+      audio.pause();
+      audio=new Audio($scope.audios[id]);
+      audio.play();
+    }
+
+
     // funcion que hara que bloqueara botones
     $scope.tmpClicks;
     $scope.sumar = function () {
+
       $scope.tmpClicks++;
+      $scope.playAudio($scope.tmpClicks)
       console.log($scope.tmpClicks);
     };
     $scope.restar = function () {
       $scope.tmpClicks--;
+      $scope.playAudio($scope.tmpClicks)
       console.log($scope.tmpClicks);
     };
-
+   
 
     //// Aqui implementamos la seleccion de libros de la ventana 2 
     var librosSeleccionados = [];
