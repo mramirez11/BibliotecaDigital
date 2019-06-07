@@ -32,7 +32,8 @@
       console.log($scope.books)
     });
 
-    var audio ;
+    // Declaramos la variable audio global para acceder a ella desde todo el sistema
+    var  audio
     $scope.loadBook = function (libro) {
       var calcularCantImg = libro.cantPaginas; // = libro.cantPaginas
       $scope.cantPaginas = parseInt(calcularCantImg)
@@ -43,18 +44,24 @@
       }
       $scope.paginas = paginas;
       $scope.tmpClicks = 0;
+
       // Codigo para audio
+      // Iniciamos array que almacenara rutas de audios
       var audios = [];
+      // Ciclo que llena el array con las rutas de los audios
       for (let i = 1; i < parseInt(calcularCantImg) +1; i++) {
         audios.push(libro.rutaAudio.replace('Portada.png', i+".mp3"))
       }
+      // Asignamos la variable al scope para acceder a ella desde la vista
       $scope.audios=audios;
+      
       audio = new Audio($scope.audios[0]);
       audio.play();
       $scope.cambioVista("screen4");
       
 
     };
+    // Funcion que se encarga del audio
     $scope.playAudio= function(id){
       audio.pause();
       audio=new Audio($scope.audios[id]);
@@ -212,7 +219,8 @@
       $scope.limpiarLibrosSeleccionados()
     }
 
-    $scope.search = function (menu) {//funcion que cambia vistas
+    // Función que realiza la busqueda, considerando busquedas por palabra
+    $scope.search = function (menu) {
       //  console.log("Valor busqueda")
       //  console.log($scope.valueSearch)
       var booksFind = [];
