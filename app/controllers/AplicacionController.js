@@ -14,12 +14,17 @@
     $scope.value = 0;
     // Configuramos pantalla inicial
     $scope.menu = 'app/views/screen1.html';
+    
+    
 
-
+    // Funcion que actualiza el estado del switch
     $scope.valueCheckBox = function () {
+      // Activamos
       if ($scope.value == 0) {
         $scope.value = 1
+        $scope.playAudioVista("screen1")
       } else {
+        // Desactivamos
         $scope.value = 0;
       }
     };
@@ -54,6 +59,7 @@
     $scope.cambioVista = function (menu) {
       // Cambiamos la vista con la ruta de la asociacion
       $scope.menu = 'app/views/' + menu + '.html';
+      $scope.playAudioVista(menu)
     };
 
     $scope.isMenu = function (menu) {
@@ -89,6 +95,17 @@
       // Aqui va todo lo que hacemos cuando logramos la conexion
       $scope.categoria = response.data;
       console.log($scope.categoria)
+    });
+
+    // Obtenemos los valores de tabla audio_guia
+    $http({
+      method: 'GET',
+      url: '././lib/js/getAudioGuia.php'
+    }).then(function successCallback(response) {
+      // Aqui va todo lo que hacemos cuando logramos la conexion
+      $scope.audioGuia = response.data;
+      console.log($scope.audioGuia)
+      
     });
 
     // Declaramos la variable audio global para acceder a ella desde todo el sistema
@@ -171,7 +188,6 @@
         return false;
       }
     };
-
 
     /// Algoritmo para la recomendacion
     $scope.recomendarLibros = function () {
@@ -265,5 +281,18 @@
       $scope.menu = 'app/views/' + menu + '.html';
 
     }
+
+    // Funcion que reproduce audios de las vistas
+    var audio2
+    $scope.playAudioVista = function (ruta) {
+      if($scope.value==1){
+        console.log("lib/audio/vista/"+ruta+".mp3")
+        audio2=new Audio("lib/audio/vista/"+ruta+".mp3")
+        audio2.play()
+      }
+    };
+    
+    
+
   }]);
 })();

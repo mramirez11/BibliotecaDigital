@@ -40,5 +40,7 @@ INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCa
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('11', '6');
 INSERT INTO `biblioteca`.`Libro_has_Categoria` (`Libro_idLibro`, `Categoria_idCategoria`) VALUES ('12', '6');
 
-
+INSERT INTO `biblioteca`.`audio_guia` (`idAudio_Guia`, `titulo`, `ruta`) VALUES ('1', 'Pantalla inicial', 'lib/audio/vista/screen1.mp3');
+INSERT INTO `biblioteca`.`audio_guia` (`idAudio_Guia`, `titulo`, `ruta`) VALUES ('2', 'Seleccion libro', 'lib/audio/vista/screen2.mp3');
+INSERT INTO `biblioteca`.`audio_guia` (`idAudio_Guia`, `titulo`, `ruta`) VALUES ('3', 'Recomendaciones', 'lib/audio/vista/screen3.mp3');
 SELECT * FROM biblioteca.Libro;
