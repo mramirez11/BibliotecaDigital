@@ -7,22 +7,61 @@
   // mencionado en index.html y este debe recibir por parametro al $scope para poder utilizarlo y lograr hacer el
   // bind entre las variables del archivo javascript hacia el DOM
   app.controller('applicationController', ['$scope', '$http', function ($scope, $http) {
-    $scope.ejemplo = 'Esto es un ejemplo de Angular JS';
+    // Variables a utilizar en el sistema
     $scope.books;
-    //Desarrollamos funciones que nos permitirán lograr una interacción con un tab de bootstrap
-    //con un ng-include de angular
+    $scope.tmpClicks;
+    // 0=Desactivado 1=Activado, corresponde al estado del switch de audio
+    $scope.value = 0;
+    // Configuramos pantalla inicial
     $scope.menu = 'app/views/screen1.html';
-    $scope.cambioVista = function (menu) {//funcion que cambia vistas
 
-      $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
-      // alert($scope.isMenu(menu) + " " + menu);
+
+    $scope.valueCheckBox = function () {
+      if ($scope.value == 0) {
+        $scope.value = 1
+      } else {
+        $scope.value = 0;
+      }
     };
+
+    // Declaramos la variable audio global para acceder a ella desde todo el sistema
+    var audio
+    // Funcion que se encarga de reproducir el audio
+    $scope.playAudio = function (id) {
+      // Si esta activado el audio, se reproduce
+      if ($scope.value == 1) {
+        console.log("Audio Activado")
+        audio = new Audio($scope.audios[id]);
+        audio.play();
+        // Caso contrario no se reproduce
+      } else {
+        console.log("Audio desactivado")
+      }
+
+    }
+    // Boton logo en navbar que vuelve a pantalla inicial
+    $scope.volverPantallaInicial = function () {
+      // Si el audio esta habilitado detenemos la reproducción y seteamos el value a desactivado
+      if ($scope.value == 1) {
+        audio.pause()
+        $scope.value = 0
+      }
+      // Dirigimos a la pantalla inicial
+      $scope.menu = 'app/views/screen1.html';
+    };
+
+    // Funcion que cambia vistas
+    $scope.cambioVista = function (menu) {
+      // Cambiamos la vista con la ruta de la asociacion
+      $scope.menu = 'app/views/' + menu + '.html';
+    };
+
     $scope.isMenu = function (menu) {
       return $scope.menu === 'app/views/' + menu + '.html';
     };
 
     // http facilita la comunicación con remotos, hace una solcitud al servidor y espera una respuesta
-    // Recoge los books
+    // Obtenemos los valores de tabla libro
     $http({
       method: 'GET',
       url: '././lib/js/getBooks.php'
@@ -32,64 +71,76 @@
       console.log($scope.books)
     });
 
+    // Obtenemos los valores de tabla libro_has_categoria
+    $http({
+      method: 'GET',
+      url: '././lib/js/getLibrosCategories.php'
+    }).then(function successCallback(response) {
+      // Aqui va todo lo que hacemos cuando logramos la conexion
+      $scope.libro_has_categoria = response.data;
+      console.log($scope.libro_has_categoria)
+    });
+
+    // Obtenemos los valores de tabla categoria
+    $http({
+      method: 'GET',
+      url: '././lib/js/getCategories.php'
+    }).then(function successCallback(response) {
+      // Aqui va todo lo que hacemos cuando logramos la conexion
+      $scope.categoria = response.data;
+      console.log($scope.categoria)
+    });
+
     // Declaramos la variable audio global para acceder a ella desde todo el sistema
-    var  audio
+    var audio
     $scope.loadBook = function (libro) {
-      var calcularCantImg = libro.cantPaginas; // = libro.cantPaginas
+      // Almacenamos la cantidad de paginas del libro
+      var calcularCantImg = libro.cantPaginas;
       $scope.cantPaginas = parseInt(calcularCantImg)
 
+      // Ciclo que llena el array paginas con las paginas del libro
       var paginas = [];
       for (let i = 1; i < parseInt(calcularCantImg) + 1; i++) {
         paginas.push(libro.rutaPagina.replace('Portada', i))
       }
+      // Asignamos el array al scope para acceder a ella desde la vista
       $scope.paginas = paginas;
+      // Inicializamos variable para controlar el id de las paginas
       $scope.tmpClicks = 0;
 
-      // Codigo para audio
+      // --------------------Codigo para audio----------------------------
       // Iniciamos array que almacenara rutas de audios
       var audios = [];
       // Ciclo que llena el array con las rutas de los audios
-      for (let i = 1; i < parseInt(calcularCantImg) +1; i++) {
-        audios.push(libro.rutaAudio.replace('Portada.png', i+".mp3"))
+      for (let i = 1; i < parseInt(calcularCantImg) + 1; i++) {
+        audios.push(libro.rutaAudio.replace('Portada.png', i + ".mp3"))
       }
-      // Asignamos la variable al scope para acceder a ella desde la vista
-      $scope.audios=audios;
-      
-      audio = new Audio($scope.audios[0]);
-      audio.play();
+      // Asignamos el aray al scope para acceder a ella desde la vista
+      $scope.audios = audios;
+      // Reproducimos por defecto la primera pagina
+      $scope.playAudio(0)
+      // Redireccionamos a pantalla de paginas
       $scope.cambioVista("screen4");
-      
-
     };
-    // Funcion que se encarga del audio
-    $scope.playAudio= function(id){
-      audio.pause();
-      audio=new Audio($scope.audios[id]);
-      audio.play();
-    }
 
-
-    // funcion que hara que bloqueara botones
-    $scope.tmpClicks;
-    $scope.sumar = function () {
-
-      $scope.tmpClicks++;
-      $scope.playAudio($scope.tmpClicks)
-      console.log($scope.tmpClicks);
-    };
+    // Funcion que bloqueara botones del carrusel de pantalla paginas
     $scope.restar = function () {
       $scope.tmpClicks--;
+      audio.pause()
       $scope.playAudio($scope.tmpClicks)
       console.log($scope.tmpClicks);
     };
-   
+    $scope.sumar = function () {
+      $scope.tmpClicks++;
+      audio.pause()
+      $scope.playAudio($scope.tmpClicks)
+      console.log($scope.tmpClicks)
+    }
 
-    //// Aqui implementamos la seleccion de libros de la ventana 2 
+    // Implementacion seleccion de libros de la ventana 2 
     var librosSeleccionados = [];
     //console.log(librosSeleccionados)
     $scope.seleccionarLibro = function (libro) {
-
-
       if (librosSeleccionados.includes(libro)) {
         var posicion = librosSeleccionados.indexOf(libro)
         librosSeleccionados.splice(posicion, 1);
@@ -115,7 +166,6 @@
     };
     $scope.evaluarlibros = function () {
       if (librosSeleccionados.length == 5) {
-        //console.log(librosSeleccionados.length)
         return true;
       } else {
         return false;
@@ -123,35 +173,10 @@
     };
 
 
-    // http facilita la comunicación con remotos, hace una solicitud al servidor y espera una respuesta
-    // Obtenemos los valores de tabla libro_has_categoria
-    $http({
-      method: 'GET',
-      url: '././lib/js/getLibrosCategories.php'
-    }).then(function successCallback(response) {
-      // Aqui va todo lo que hacemos cuando logramos la conexion
-      $scope.libro_has_categoria = response.data;
-      console.log($scope.libro_has_categoria)
-    });
-
-
-    // http facilita la comunicación con remotos, hace una solicitud al servidor y espera una respuesta
-    // Obtenemos los valores de tabla categoria
-    $http({
-      method: 'GET',
-      url: '././lib/js/getCategories.php'
-    }).then(function successCallback(response) {
-      // Aqui va todo lo que hacemos cuando logramos la conexion
-      $scope.categoria = response.data;
-      console.log($scope.categoria)
-    });
-
-
-    /// Aqui se haran algoritmos para hacer la recomendacion
+    /// Algoritmo para la recomendacion
     $scope.recomendarLibros = function () {
       console.log("Libros Seleccionados")
       console.log(librosSeleccionados)
-
       var librosEncontradosPorAlgoritmo = []
       for (let i = 0; i < librosSeleccionados.length; i++) {
         var idLibroSeleccionado = librosSeleccionados[i].idLibro
@@ -159,49 +184,33 @@
         for (let j = 0; j < $scope.libro_has_categoria.length; j++) {
           if ($scope.libro_has_categoria[j].Libro_idLibro == idLibroSeleccionado) {
             n.push($scope.libro_has_categoria[j])
-
             // Random
             var min = 0;
             var max = n.length;
             var random = Math.floor(Math.random() * (+max - +min)) + +min;
 
             var LibroAleatorio = n[random]
-            // console.log("Libro Aleatorio")
-            // console.log(LibroAleatorio)
             var categoriaAleatoria = LibroAleatorio.Categoria_idCategoria
-            // console.log("Categoria Aleatoria")
-            //  console.log(categoriaAleatoria)
-
             var librosConCategoriaAleatoria = []
             for (let i = 0; i < $scope.libro_has_categoria.length; i++) {
               if ($scope.libro_has_categoria[i].Categoria_idCategoria == categoriaAleatoria) {
                 librosConCategoriaAleatoria.push($scope.libro_has_categoria[i])
               }
             }
-            //   console.log("Libros que tienen la categoria aleatoria")
-            //   console.log(librosConCategoriaAleatoria)
-
             max = librosConCategoriaAleatoria.length
             random = Math.floor(Math.random() * (+max - +min)) + +min;
             var Libro_has_CategoriaConCategoriaAleatoriaElegido = []
             Libro_has_CategoriaConCategoriaAleatoriaElegido.push(librosConCategoriaAleatoria[random])
 
-            //    console.log("Libro_has_CategoriaConCategoriaAleatoriaElegido")
-            //    console.log(Libro_has_CategoriaConCategoriaAleatoriaElegido)
-
             var idLibro_has_CategoriaConCategoriaAleatoriaElegido = Libro_has_CategoriaConCategoriaAleatoriaElegido[0].Libro_idLibro
-            //    console.log("idLibro_has_CategoriaConCategoriaAleatoriaElegido")
-            //    console.log(idLibro_has_CategoriaConCategoriaAleatoriaElegido)
+
             var libroEncontradoPorAlgoritmo = ""
             for (let i = 0; i < $scope.books.length; i++) {
-              // console.log($scope.books[i].idLibro+" - "+ idLibroConCategoriaAleatoriaElegido)
               if ($scope.books[i].idLibro == idLibro_has_CategoriaConCategoriaAleatoriaElegido) {
                 libroEncontradoPorAlgoritmo = $scope.books[i]
                 break;
               }
             }
-            //      console.log("libroEncontradoPorAlgoritmo")
-            //      console.log(libroEncontradoPorAlgoritmo)
           }
         }
         if (librosEncontradosPorAlgoritmo.includes(libroEncontradoPorAlgoritmo)) {
@@ -219,19 +228,25 @@
       $scope.limpiarLibrosSeleccionados()
     }
 
-    // Función que realiza la busqueda, considerando busquedas por palabra
+    // Función que realiza la busqueda, considera busquedas por palabra
     $scope.search = function (menu) {
-      //  console.log("Valor busqueda")
-      //  console.log($scope.valueSearch)
+      // Si el audio esta habilitado, se detiene
+      try {
+        if ($scope.value == 1) {
+          audio.pause()
+        }
+      } catch (error) {
+        console.log("No existe audio iniciado")
+      }
+
       var booksFind = [];
       // Separamos el valor de la busqueda y lo almacenamos en un array
       var word = $scope.valueSearch.toLowerCase()
       var wordSeparate = word.split(" ");
-      //  console.log("palabra separada")
-      //   console.log(wordSeparate.length)
+
       // Establecemos el largo de la palabra separada. 
-      //Se agrega la condicion en el caso particular de largo==1 por la validación del for
       var largo = wordSeparate.length
+      //Se agrega la condicion en el caso particular de largo==1 por la validación del for
       if (largo == 1) largo++;
       // Ciclo que recorre todos los libros
       for (let i = 0; i < $scope.books.length; i++) {
@@ -246,11 +261,9 @@
       $scope.bookFind = booksFind;
       $scope.notFound = "No existen coincidencias de la búsqueda, vuelva a intentarlo"
       console.log(booksFind)
-      $scope.menu = 'app/views/' + menu + '.html';//cambio la vista cambiando la ruta de la asociacion
-      // alert($scope.isMenu(menu) + " " + menu);
+      // Actualizamos la vista
+      $scope.menu = 'app/views/' + menu + '.html';
+
     }
-
-
-
   }]);
 })();
