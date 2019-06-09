@@ -42,7 +42,21 @@
       } else {
         console.log("Audio desactivado")
       }
+    }
 
+     // Funcion que reproduce audios de las vistas
+     var audio2
+     $scope.playAudioVista = function (ruta) {
+       if($scope.value==1){
+         console.log("lib/audio/vista/"+ruta+".mp3")
+         audio2=new Audio("lib/audio/vista/"+ruta+".mp3")
+         $scope.pauseAudio(audio2)
+         audio2.play()
+       }
+     };
+
+    $scope.pauseAudio=function(audio){
+      audio.pause()
     }
     // Boton logo en navbar que vuelve a pantalla inicial
     $scope.volverPantallaInicial = function () {
@@ -282,15 +296,7 @@
 
     }
 
-    // Funcion que reproduce audios de las vistas
-    var audio2
-    $scope.playAudioVista = function (ruta) {
-      if($scope.value==1){
-        console.log("lib/audio/vista/"+ruta+".mp3")
-        audio2=new Audio("lib/audio/vista/"+ruta+".mp3")
-        audio2.play()
-      }
-    };
+   
     
     
 
