@@ -31,6 +31,7 @@
 
     // Declaramos la variable audio global para acceder a ella desde todo el sistema
     var audio
+    var audio2
     // Funcion que se encarga de reproducir el audio
     $scope.playAudio = function (id) {
       // Si esta activado el audio, se reproduce
@@ -45,7 +46,7 @@
     }
 
      // Funcion que reproduce audios de las vistas
-     var audio2
+     
      $scope.playAudioVista = function (ruta) {
        if($scope.value==1){
          console.log("lib/audio/vista/"+ruta+".mp3")
@@ -73,6 +74,7 @@
     $scope.cambioVista = function (menu) {
       // Cambiamos la vista con la ruta de la asociacion
       $scope.menu = 'app/views/' + menu + '.html';
+      audio2.pause()
       $scope.playAudioVista(menu)
     };
 
