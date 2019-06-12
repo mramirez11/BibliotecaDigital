@@ -113,17 +113,6 @@
       console.log($scope.categoria)
     });
 
-    // Obtenemos los valores de tabla audio_guia
-    $http({
-      method: 'GET',
-      url: '././lib/js/getAudioGuia.php'
-    }).then(function successCallback(response) {
-      // Aqui va todo lo que hacemos cuando logramos la conexion
-      $scope.audioGuia = response.data;
-      console.log($scope.audioGuia)
-      
-    });
-
     // Declaramos la variable audio global para acceder a ella desde todo el sistema
     var audio
     $scope.loadBook = function (libro) {
